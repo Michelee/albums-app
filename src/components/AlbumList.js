@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+import AlbumDetail from './AlbumDetail';
 
 class AlbumList extends Component { 
   state = {
@@ -7,6 +8,7 @@ class AlbumList extends Component {
   }
 
   componentWillMount() {
+    // eslint-disable-next-line no-undef
     fetch('https://rallycoding.herokuapp.com/api/music_albums', {
       method: 'GET',
       headers: {
@@ -24,13 +26,12 @@ class AlbumList extends Component {
   }
 
   render() {
-    const { viewStyle, textStyles } = styles;
-    console.log(this.state.albums);
+    const { viewStyle } = styles;
     return (
       <View style={viewStyle}>
         {
           this.state.albums.map((item, index) => (
-            <Text key={index} style={textStyles}>{item.title}</Text>
+            <AlbumDetail key={index} album={item} />
           ))
         }
       </View>
@@ -39,10 +40,6 @@ class AlbumList extends Component {
 }
 
 const styles = {
-  textStyles: {
-    fontSize: 16,
-    color: 'black'
-  },
   viewStyle: {
     backgroundColor: '#F8F8F8',
     display: 'flex',
