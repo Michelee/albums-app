@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { ScrollView } from 'react-native';
 import AlbumDetail from './AlbumDetail';
 
 class AlbumList extends Component { 
@@ -28,13 +28,13 @@ class AlbumList extends Component {
   render() {
     const { viewStyle } = styles;
     return (
-      <View style={viewStyle}>
+      <ScrollView style={viewStyle}>
         {
           this.state.albums.map((item, index) => (
             <AlbumDetail key={index} album={item} />
           ))
         }
-      </View>
+      </ScrollView>
     );
   }
 }
@@ -46,7 +46,6 @@ const styles = {
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
-
     position: 'relative'
   }
 };
