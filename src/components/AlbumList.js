@@ -23,16 +23,16 @@ class AlbumList extends Component {
       });
   }
 
-  renderAlbums() {
-
-  }
-  
   render() {
-    const { albums } = this.state;
-    const { viewStyle } = styles;
+    const { viewStyle, textStyles } = styles;
+    console.log(this.state.albums);
     return (
       <View style={viewStyle}>
-        <Text>Album List</Text>
+        {
+          this.state.albums.map((item, index) => (
+            <Text key={index} style={textStyles}>{item.title}</Text>
+          ))
+        }
       </View>
     );
   }
@@ -40,7 +40,8 @@ class AlbumList extends Component {
 
 const styles = {
   textStyles: {
-    fontSize: 20,
+    fontSize: 16,
+    color: 'black'
   },
   viewStyle: {
     backgroundColor: '#F8F8F8',
