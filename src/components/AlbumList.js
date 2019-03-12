@@ -42,11 +42,7 @@ class AlbumList extends Component {
 const styles = {
   viewStyle: {
     backgroundColor: '#F8F8F8',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: 100,
-    padding: 15,
+    height: '100%',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
